@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7,IE=edge"/>
+    <%- @getBlock("styles").toHTML() %>
+    <%- @getBlock("styles").add(["/s/support-prototype.css"]).toHTML() %>
+
+    <title><%= @getPreparedTitle() %></title>
+</head>
+<body class="page-body">
+    <h1><%= @getPreparedTitle() %></h1>
+    <aside id="toc">
+        <h2>Specifications</h2>
+        <ul>
+            <li><a href="http://www.w3.org/TR/css3-text/">Latest version</a></li>
+            <li><a href="http://dev.w3.org/csswg/css-text/">Editor's draft</a></li>
+        </ul>
+
+        <h2>Property List</h2>
+        <ul>
+            <% for property in @getCollection("CSSproperties").toJSON(): %>
+                <li><a href="#<%= property.name %>"><%= property.name %></a></li>
+            <% end %>
+        </ul>
+
+    </aside>
+
+    <% for property in @getCollection("CSSproperties").toJSON(): %>
+        <%- console.log('\n\n') %>
+        <%- console.log(property.name) %>
+
+        <% needColspan = {} %>
+        <% for value in Object.keys(property.values): %>
+            <% supportTable = property.values[value] && property.values[value].support || property.support || {} %>
+            <% for browser in @site.browsers: %>
+                <% support = supportTable[browser.toLowerCase()] %>
+                <% if support && typeof support != 'number' && support.length > 1: %>
+                    <% needColspan[browser] = true %>
+                <% end %>
+            <% end %>
+        <% end %>
+
+        <table id="<%= property.name %>">
+            <caption><code><%= property.name %></code> property</caption>
+            <thead>
+                <tr>
+                    <th rowspan="2">Value</th>
+                    <th rowspan="2">Introduced</th>
+                    <th colspan="10">Support</th>
+                </tr>
+                <tr class="browsers">
+                    <% for browser in @site.browsers: %>
+                        <th<% if needColspan[browser]: %> colspan="2"<% end %>><span><%= browser %></span></th>
+                    <% end %>
+                </tr>
+            </thead>
+            <tbody>
+                <% for value in Object.keys(property.values): %>
+                    <%- console.log(value) %>
+                    <% supportTable = property.values[value] && property.values[value].support || property.support || {} %>
+                    <%- console.log(supportTable) %>
+                    <tr>
+                        <td><% if value.indexOf('>') >= 0: %><var><%= value %></var><% else: %><code><%= value %></code><% end %></td>
+                        <td><%= property.values[value] && property.values[value].introduced || property.introduced %></td>
+                        <% for browser in @site.browsers: %>
+                            <% support = supportTable[browser.toLowerCase()] %>
+
+                            <% if support: %>
+                                <% if typeof support == 'number': %>
+                                    <td class="supported"<% if needColspan[browser]: %> colspan="2"<% end %>>
+                                        <%= support %>
+                                    </td>
+                                <% else: %>
+                                    <% for subSupport, subSupportIndex in support: %>
+                                        <% if support.length > 1 && subSupportIndex == support.length - 1: %>
+                                            <td class="supported half-width">
+                                                <%= subSupport %>
+                                            </td>
+                                        <% else: %>
+                                            <td class="prefixed<% if support.length > 1: %> half-width<% end %>"<% if support.length == 1 && needColspan[browser]: %> colspan="2"<% end %>>
+                                                <%= subSupport %>
+                                            </td>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                            <% else: %>
+                                <td class="unsupported"<% if needColspan[browser]: %> colspan="2"<% end %>>
+                                    No
+                                </td>
+                            <% end %>
+                        <% end %>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+
+        <% if property.specs: %>
+            <h2>Specifications</h2>
+            <ol class="specs">
+                <% for spec in property.specs: %>
+                    <% specData = @site.specs.Text[spec] %>
+                    <li>
+                        <a href="<%= specData.link.replace('%s', property.name) %>"><%= specData.name %></a>
+                        [<%= specData.status %>]
+                    </li>
+                <% end %>
+            </ol>
+        <% end %>
+
+        <% if property.prefixes: %>
+            <h2>Prefixes</h2>
+            <ul>
+                <% for prefix in property.prefixes: %>
+                    <li><%= prefix %></li>
+                <% end %>
+            </ul>
+        <% end %>
+
+    <% end %>
+
+    <%- @getBlock("scripts").toHTML() %>
+</body>
+</html>
+
