@@ -1,0 +1,2479 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7,IE=edge"/>
+    
+    <link  rel="stylesheet" href="/s/support-prototype.css" />
+
+    <title>CSS Text</title>
+</head>
+<body class="page-body">
+    <h1>CSS Text</h1>
+    <aside id="toc">
+        <h2>Specifications</h2>
+        <ul>
+            <li><a href="http://www.w3.org/TR/css3-text/">Latest version</a></li>
+            <li><a href="http://dev.w3.org/csswg/css-text/">Editor's draft</a></li>
+        </ul>
+
+        <h2>Property List</h2>
+        <ul>
+            
+                <li><a href="#line-break">line-break</a></li>
+            
+                <li><a href="#tab-size">tab-size</a></li>
+            
+                <li><a href="#text-space-collapse">text-space-collapse</a></li>
+            
+                <li><a href="#text-transform">text-transform</a></li>
+            
+                <li><a href="#white-space">white-space</a></li>
+            
+                <li><a href="#word-break">word-break</a></li>
+            
+        </ul>
+
+    </aside>
+
+    
+        
+        
+
+        
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+
+        <table id="line-break">
+            <caption><code>line-break</code> property</caption>
+            <thead>
+                <tr>
+                    <th rowspan="2">Value</th>
+                    <th rowspan="2">Introduced</th>
+                    <th colspan="10">Support</th>
+                </tr>
+                <tr class="browsers">
+                    
+                        <th><span>Firefox</span></th>
+                    
+                        <th><span>Safari</span></th>
+                    
+                        <th><span>Opera</span></th>
+                    
+                        <th><span>Chrome</span></th>
+                    
+                        <th><span>IE</span></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>auto</code></td>
+                        <td>CSS3</td>
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed">
+                                                6.1
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed">
+                                                15
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed">
+                                                25
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>loose</code></td>
+                        <td>CSS3</td>
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed">
+                                                6.1
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed">
+                                                15
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed">
+                                                25
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>normal</code></td>
+                        <td>CSS3</td>
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed">
+                                                2
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed">
+                                                15
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed">
+                                                1
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        5
+                                    </td>
+                                
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>strict</code></td>
+                        <td>CSS3</td>
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed">
+                                                6.1
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed">
+                                                15
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed">
+                                                25
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        5
+                                    </td>
+                                
+                            
+                        
+                    </tr>
+                
+            </tbody>
+        </table>
+
+        
+            <h2>Specifications</h2>
+            <ol class="specs">
+                
+                    
+                    <li>
+                        <a href="http://dev.w3.org/csswg/css-text-4/#line-break">CSS Text Level 4</a>
+                        [Editor’s Draft]
+                    </li>
+                
+                    
+                    <li>
+                        <a href="http://dev.w3.org/csswg/css-text/#line-break">CSS Text Level 3</a>
+                        [Editor’s Draft]
+                    </li>
+                
+            </ol>
+        
+
+        
+            <h2>Prefixes</h2>
+            <ul>
+                
+                    <li>Chrome, Opera, and Safari 3+ require the `-webkit-` prefix.</li>
+                
+                    <li>Safari 2 required the `-khtml-` prefix.</li>
+                
+                    <li>Internet Explorer optionally supports the `-ms-` prefix since version 8.</li>
+                
+            </ul>
+        
+
+    
+        
+        
+
+        
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+                    
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+
+        <table id="tab-size">
+            <caption><code>tab-size</code> property</caption>
+            <thead>
+                <tr>
+                    <th rowspan="2">Value</th>
+                    <th rowspan="2">Introduced</th>
+                    <th colspan="10">Support</th>
+                </tr>
+                <tr class="browsers">
+                    
+                        <th><span>Firefox</span></th>
+                    
+                        <th><span>Safari</span></th>
+                    
+                        <th colspan="2"><span>Opera</span></th>
+                    
+                        <th><span>Chrome</span></th>
+                    
+                        <th><span>IE</span></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><var>&lt;integer&gt;</var></td>
+                        <td>CSS3</td>
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed">
+                                                4
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        6.1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed half-width">
+                                                10.5
+                                            </td>
+                                        
+                                    
+                                        
+                                            <td class="supported half-width">
+                                                15
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        21
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><var>&lt;length&gt;</var></td>
+                        <td>CSS3</td>
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported" colspan="2">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                    </tr>
+                
+            </tbody>
+        </table>
+
+        
+            <h2>Specifications</h2>
+            <ol class="specs">
+                
+                    
+                    <li>
+                        <a href="http://dev.w3.org/csswg/css-text-4/#tab-size">CSS Text Level 4</a>
+                        [Editor’s Draft]
+                    </li>
+                
+                    
+                    <li>
+                        <a href="http://dev.w3.org/csswg/css-text/#tab-size">CSS Text Level 3</a>
+                        [Editor’s Draft]
+                    </li>
+                
+            </ol>
+        
+
+        
+            <h2>Prefixes</h2>
+            <ul>
+                
+                    <li>Firefox requires the `-moz-` prefix.</li>
+                
+                    <li>Opera required the `-o-` prefix from version 10.5, until it was dropped when they switched to the Blink rendering engine in version 15.</li>
+                
+            </ul>
+        
+
+    
+        
+        
+
+        
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+
+        <table id="text-space-collapse">
+            <caption><code>text-space-collapse</code> property</caption>
+            <thead>
+                <tr>
+                    <th rowspan="2">Value</th>
+                    <th rowspan="2">Introduced</th>
+                    <th colspan="10">Support</th>
+                </tr>
+                <tr class="browsers">
+                    
+                        <th><span>Firefox</span></th>
+                    
+                        <th><span>Safari</span></th>
+                    
+                        <th><span>Opera</span></th>
+                    
+                        <th><span>Chrome</span></th>
+                    
+                        <th><span>IE</span></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>collapse</code></td>
+                        <td>CSS4</td>
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>discard</code></td>
+                        <td>CSS4</td>
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>preserve</code></td>
+                        <td>CSS4</td>
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>preserve-breaks</code></td>
+                        <td>CSS4</td>
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>trim-inner</code></td>
+                        <td>CSS4</td>
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>consume-before</code></td>
+                        <td>CSS4</td>
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>consume-after</code></td>
+                        <td>CSS4</td>
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                    </tr>
+                
+            </tbody>
+        </table>
+
+        
+            <h2>Specifications</h2>
+            <ol class="specs">
+                
+                    
+                    <li>
+                        <a href="http://dev.w3.org/csswg/css-text-4/#text-space-collapse">CSS Text Level 4</a>
+                        [Editor’s Draft]
+                    </li>
+                
+            </ol>
+        
+
+        
+
+    
+        
+        
+
+        
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+
+        <table id="text-transform">
+            <caption><code>text-transform</code> property</caption>
+            <thead>
+                <tr>
+                    <th rowspan="2">Value</th>
+                    <th rowspan="2">Introduced</th>
+                    <th colspan="10">Support</th>
+                </tr>
+                <tr class="browsers">
+                    
+                        <th><span>Firefox</span></th>
+                    
+                        <th><span>Safari</span></th>
+                    
+                        <th><span>Opera</span></th>
+                    
+                        <th><span>Chrome</span></th>
+                    
+                        <th><span>IE</span></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>none</code></td>
+                        <td>CSS1</td>
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        3.5
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        4
+                                    </td>
+                                
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>capitalize</code></td>
+                        <td>CSS1</td>
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        3.5
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        4
+                                    </td>
+                                
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>uppercase</code></td>
+                        <td>CSS1</td>
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        3.5
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        4
+                                    </td>
+                                
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>lowercase</code></td>
+                        <td>CSS1</td>
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        3.5
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        4
+                                    </td>
+                                
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>full-width</code></td>
+                        <td>CSS3</td>
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        19
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>full-size-kana</code></td>
+                        <td>CSS4</td>
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                    </tr>
+                
+            </tbody>
+        </table>
+
+        
+            <h2>Specifications</h2>
+            <ol class="specs">
+                
+                    
+                    <li>
+                        <a href="http://dev.w3.org/csswg/css-text-4/#text-transform">CSS Text Level 4</a>
+                        [Editor’s Draft]
+                    </li>
+                
+                    
+                    <li>
+                        <a href="http://dev.w3.org/csswg/css-text/#text-transform">CSS Text Level 3</a>
+                        [Editor’s Draft]
+                    </li>
+                
+                    
+                    <li>
+                        <a href="http://www.w3.org/TR/CSS2/text.html#propdef-text-transform">CSS Level 2 Revision 1, Text</a>
+                        [Recommendation]
+                    </li>
+                
+                    
+                    <li>
+                        <a href="http://www.w3.org/TR/REC-CSS1/#text-transform">CSS Level 1, Text</a>
+                        [Recommendation]
+                    </li>
+                
+            </ol>
+        
+
+        
+
+    
+        
+        
+
+        
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+                    
+                
+            
+                
+                
+            
+                
+                
+                    
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+
+        <table id="white-space">
+            <caption><code>white-space</code> property</caption>
+            <thead>
+                <tr>
+                    <th rowspan="2">Value</th>
+                    <th rowspan="2">Introduced</th>
+                    <th colspan="10">Support</th>
+                </tr>
+                <tr class="browsers">
+                    
+                        <th colspan="2"><span>Firefox</span></th>
+                    
+                        <th><span>Safari</span></th>
+                    
+                        <th colspan="2"><span>Opera</span></th>
+                    
+                        <th><span>Chrome</span></th>
+                    
+                        <th><span>IE</span></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>normal</code></td>
+                        <td>CSS1</td>
+                        
+                            
+
+                            
+                                
+                                    <td class="supported" colspan="2">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported" colspan="2">
+                                        4
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        5.5
+                                    </td>
+                                
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>nowrap</code></td>
+                        <td>CSS1</td>
+                        
+                            
+
+                            
+                                
+                                    <td class="supported" colspan="2">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported" colspan="2">
+                                        4
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        5.5
+                                    </td>
+                                
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>pre</code></td>
+                        <td>CSS1</td>
+                        
+                            
+
+                            
+                                
+                                    <td class="supported" colspan="2">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported" colspan="2">
+                                        4
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        6
+                                    </td>
+                                
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>pre-wrap</code></td>
+                        <td>CSS2.1</td>
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed half-width">
+                                                1
+                                            </td>
+                                        
+                                    
+                                        
+                                            <td class="supported half-width">
+                                                3
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    
+                                        
+                                            <td class="prefixed half-width">
+                                                4
+                                            </td>
+                                        
+                                    
+                                        
+                                            <td class="supported half-width">
+                                                8
+                                            </td>
+                                        
+                                    
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        8
+                                    </td>
+                                
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>pre-line</code></td>
+                        <td>CSS2.1</td>
+                        
+                            
+
+                            
+                                
+                                    <td class="supported" colspan="2">
+                                        3.5
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported" colspan="2">
+                                        9.5
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        8
+                                    </td>
+                                
+                            
+                        
+                    </tr>
+                
+            </tbody>
+        </table>
+
+        
+            <h2>Specifications</h2>
+            <ol class="specs">
+                
+                    
+                    <li>
+                        <a href="http://dev.w3.org/csswg/css-text-4/#white-space">CSS Text Level 4</a>
+                        [Editor’s Draft]
+                    </li>
+                
+                    
+                    <li>
+                        <a href="http://dev.w3.org/csswg/css-text/#white-space">CSS Text Level 3</a>
+                        [Editor’s Draft]
+                    </li>
+                
+                    
+                    <li>
+                        <a href="http://www.w3.org/TR/CSS2/text.html#propdef-white-space">CSS Level 2 Revision 1, Text</a>
+                        [Recommendation]
+                    </li>
+                
+                    
+                    <li>
+                        <a href="http://www.w3.org/TR/REC-CSS1/#white-space">CSS Level 1, Text</a>
+                        [Recommendation]
+                    </li>
+                
+            </ol>
+        
+
+        
+            <h2>Prefixes</h2>
+            <ul>
+                
+                    <li>Firefox required the `-moz-` prefix on the value for `pre-wrap`, until it was supported prefixless in Firefox 3. Support for `-moz-pre-wrap` was dropped after Firefox 3.5.</li>
+                
+                    <li>Opera originally supported `pre-wrap` as `-pre-wrap` from Opera 4.x until 6.x. This was updated to `-o-pre-wrap` in Opera 7. The unprefixed version has been supported since Opera 8.</li>
+                
+            </ul>
+        
+
+    
+        
+        
+
+        
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+            
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+                
+                
+            
+        
+
+        <table id="word-break">
+            <caption><code>word-break</code> property</caption>
+            <thead>
+                <tr>
+                    <th rowspan="2">Value</th>
+                    <th rowspan="2">Introduced</th>
+                    <th colspan="10">Support</th>
+                </tr>
+                <tr class="browsers">
+                    
+                        <th><span>Firefox</span></th>
+                    
+                        <th><span>Safari</span></th>
+                    
+                        <th><span>Opera</span></th>
+                    
+                        <th><span>Chrome</span></th>
+                    
+                        <th><span>IE</span></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>normal</code></td>
+                        <td>CSS3</td>
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        15
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        3
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        15
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        5
+                                    </td>
+                                
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>break-all</code></td>
+                        <td>CSS3</td>
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        15
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        3
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        15
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        1
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        5
+                                    </td>
+                                
+                            
+                        
+                    </tr>
+                
+                    
+                    
+                    
+                    <tr>
+                        <td><code>keep-all</code></td>
+                        <td>CSS3</td>
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        15
+                                    </td>
+                                
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                <td class="unsupported">
+                                    No
+                                </td>
+                            
+                        
+                            
+
+                            
+                                
+                                    <td class="supported">
+                                        5
+                                    </td>
+                                
+                            
+                        
+                    </tr>
+                
+            </tbody>
+        </table>
+
+        
+            <h2>Specifications</h2>
+            <ol class="specs">
+                
+                    
+                    <li>
+                        <a href="http://dev.w3.org/csswg/css-text-4/#word-break">CSS Text Level 4</a>
+                        [Editor’s Draft]
+                    </li>
+                
+                    
+                    <li>
+                        <a href="http://dev.w3.org/csswg/css-text/#word-break">CSS Text Level 3</a>
+                        [Editor’s Draft]
+                    </li>
+                
+            </ol>
+        
+
+        
+            <h2>Prefixes</h2>
+            <ul>
+                
+                    <li>Internet Explorer optionally supports the -ms- prefix since version 8.</li>
+                
+            </ul>
+        
+
+    
+
+    
+</body>
+</html>
+
