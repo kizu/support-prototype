@@ -6,7 +6,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7,IE=edge"/>
     <%- @getBlock("styles").toHTML() %>
-    <%- @getBlock("styles").add(["/s/support-prototype.css"]).toHTML() %>
+    <%- @getBlock("styles").add(["s/support-prototype.css"]).toHTML() %>
 
     <title><%= @getPreparedTitle() %></title>
 </head>
@@ -29,9 +29,6 @@
     </aside>
 
     <% for property in @getCollection("CSSproperties").toJSON(): %>
-        <%- console.log('\n\n') %>
-        <%- console.log(property.name) %>
-
         <% needColspan = {} %>
         <% for value in Object.keys(property.values): %>
             <% supportTable = property.values[value] && property.values[value].support || property.support || {} %>
@@ -59,9 +56,7 @@
             </thead>
             <tbody>
                 <% for value in Object.keys(property.values): %>
-                    <%- console.log(value) %>
                     <% supportTable = property.values[value] && property.values[value].support || property.support || {} %>
-                    <%- console.log(supportTable) %>
                     <tr>
                         <td><% if value.indexOf('>') >= 0: %><var><%= value %></var><% else: %><code><%= value %></code><% end %></td>
                         <td><%= property.values[value] && property.values[value].introduced || property.introduced %></td>
