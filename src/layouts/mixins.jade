@@ -1,0 +1,107 @@
+include ../../node_modules/bemto.jade/bemto
+
+mixin page()
+  +b('html').page&attributes(attributes)
+    +page-head
+    +page-body
+      h1= getPreparedTitle()
+
+      - var properties = getCollection("CSSproperties").toJSON()
+
+      aside#toc
+        h2 Specifications
+        ul
+          li: a(href='http://www.w3.org/TR/css3-text/') Latest version
+          li: a(href='http://dev.w3.org/csswg/css-text/') Editor's draft
+
+        h2 Property List
+        ul
+          - for property in properties
+            li: a(href='#' + property.name)= property.name
+
+      - for property in properties
+        - var needColspan = {}
+        - for value in Object.keys(property.values)
+          - var supportTable = property.values[value] && property.values[value].support || property.support || {}
+            - for browser in site.browsers
+              - var support = supportTable[browser.toLowerCase()]
+              if support && typeof support != 'number' && support.length > 1
+                - needColspan[browser] = true
+        table(id=property.name)
+          caption
+            code= property.name
+            = ' property'
+            thead
+              tr
+                th(rowspan="2") Value
+                th(rowspan="2") Introduced
+                th(colspan="10") Support
+              tr.browsers
+                - for browser in site.browsers
+                  th(colspan=needColspan[browser] ? 2 : false): span= browser
+            tbody
+              - for value in Object.keys(property.values)
+                - var supportTable = property.values[value] && property.values[value].support || property.support || {}
+                tr
+                  td
+                    if value.indexOf('>') >= 0
+                      var= value
+                    else
+                      code= value
+                  td= property.values[value] && property.values[value].introduced || property.introduced
+                  - for browser in site.browsers
+                    -var support = supportTable[browser.toLowerCase()]
+                    if support
+                      if typeof support == 'number'
+                        td.supported(colspan=needColspan[browser]?2:false)
+                          = support
+                      else
+                        - for subSupport, subSupportIndex in support
+                          if support.length > 1 && subSupportIndex == support.length - 1
+                            td.supported.half-width
+                              = subSupport
+                          else
+                            td.prefixed(class = support.length > 1 ? 'half-width' : false, colspan = support.length == 1 && needColspan[browser] ? 2 : false)
+                              = subSupport
+                    else
+                      td.unsupported(colspan=needColspan[browser]?2:false)
+                        | No
+
+        if property.specs
+          h2 Specifications
+          ol.specs
+            - for spec in property.specs
+              - var specData = site.specs.Text[spec]
+              li
+                a(href = specData.link.replace('%s', property.name))
+                  = specData.name
+                = ' [' + specData.status + ']'
+
+        if property.prefixes
+          h2 Prefixes
+          ul
+            - for prefix in property.prefixes
+              li= prefix
+
+      //- block
+
+mixin page-body()
+  body
+    block
+
+mixin page-head()
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=EmulateIE7,IE=edge")
+    meta(name="viewport", content="width=device-width")
+
+    //- Including docpad's stuff
+    != getBlock("meta").toHTML()
+
+    != getBlock("styles").toHTML()
+    != getBlock("styles").add(["s/support-prototype.css"]).toHTML()
+
+    title= getPreparedTitle()
+
+    block
+

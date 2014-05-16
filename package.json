@@ -1,6 +1,5 @@
 {
   "private": true,
-
   "name": "support-tables-prototype.docpad",
   "version": "0.1.0",
   "description": "Docpad prototype for support tables",
@@ -9,8 +8,10 @@
     "npm": "1.3"
   },
   "dependencies": {
+    "bemto.jade": "~0.1.0",
     "docpad": "~6.64.3",
     "docpad-plugin-eco": "~2.0.3",
+    "docpad-plugin-jade": "git://github.com/kizu/docpad-plugin-jade.git#update-jade-version",
     "docpad-plugin-marked": "~2.2.1"
   },
   "main": "node_modules/docpad/bin/docpad-server",
