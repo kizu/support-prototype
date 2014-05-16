@@ -1,4 +1,19 @@
 include mixins
 
-+page
-  div!= content
+- var properties = getCollection("CSSproperties").toJSON()
+
++b('html')
+  +page-head
+  +page-body
+    h1= getPreparedTitle()
+
+    aside#toc
+      +specifications()
+      +property-list()
+
+    - for property in properties
+      +property-table(property)
+      +property-specs(property)
+      +property-prefixes(property)
+
+//- != content

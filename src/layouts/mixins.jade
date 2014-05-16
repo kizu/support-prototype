@@ -1,89 +1,110 @@
 include ../../node_modules/bemto.jade/bemto
 
-mixin page()
-  +b('html').page&attributes(attributes)
-    +page-head
-    +page-body
-      h1= getPreparedTitle()
+- var properties = getCollection("CSSproperties").toJSON()
+- var colspans = {}
+- var supportTables = {}
+- for property in properties
+  - var colspanForProp = {}
+  - supportTables[property.name] = {}
+  - for value in Object.keys(property.values)
+    - supportTables[property.name][value] = property.values[value] && property.values[value].support || property.support || {}
 
-      - var properties = getCollection("CSSproperties").toJSON()
+    - for browser in site.browsers
+      - var support = supportTables[property.name][value][browser.toLowerCase()]
+      if support && typeof support != 'number' && support.length > 1
+        - colspanForProp[browser] = support.length
+  - colspans[property.name] = colspanForProp
 
-      aside#toc
-        h2 Specifications
-        ul
-          li: a(href='http://www.w3.org/TR/css3-text/') Latest version
-          li: a(href='http://dev.w3.org/csswg/css-text/') Editor's draft
 
-        h2 Property List
-        ul
-          - for property in properties
-            li: a(href='#' + property.name)= property.name
+mixin specifications()
+  h2 Specifications
+  ul
+    li: a(href='http://www.w3.org/TR/css3-text/') Latest version
+    li: a(href='http://dev.w3.org/csswg/css-text/') Editor's draft
 
-      - for property in properties
-        - var needColspan = {}
-        - for value in Object.keys(property.values)
-          - var supportTable = property.values[value] && property.values[value].support || property.support || {}
-            - for browser in site.browsers
-              - var support = supportTable[browser.toLowerCase()]
-              if support && typeof support != 'number' && support.length > 1
-                - needColspan[browser] = true
-        table(id=property.name)
-          caption
-            code= property.name
-            = ' property'
-            thead
-              tr
-                th(rowspan="2") Value
-                th(rowspan="2") Introduced
-                th(colspan="10") Support
-              tr.browsers
-                - for browser in site.browsers
-                  th(colspan=needColspan[browser] ? 2 : false): span= browser
-            tbody
-              - for value in Object.keys(property.values)
-                - var supportTable = property.values[value] && property.values[value].support || property.support || {}
-                tr
-                  td
-                    if value.indexOf('>') >= 0
-                      var= value
-                    else
-                      code= value
-                  td= property.values[value] && property.values[value].introduced || property.introduced
-                  - for browser in site.browsers
-                    -var support = supportTable[browser.toLowerCase()]
-                    if support
-                      if typeof support == 'number'
-                        td.supported(colspan=needColspan[browser]?2:false)
-                          = support
-                      else
-                        - for subSupport, subSupportIndex in support
-                          if support.length > 1 && subSupportIndex == support.length - 1
-                            td.supported.half-width
-                              = subSupport
-                          else
-                            td.prefixed(class = support.length > 1 ? 'half-width' : false, colspan = support.length == 1 && needColspan[browser] ? 2 : false)
-                              = subSupport
-                    else
-                      td.unsupported(colspan=needColspan[browser]?2:false)
-                        | No
+mixin property-list()
+  h2 Property List
+  ul
+    - for property in properties
+      li: a(href='#' + property.name)= property.name
 
-        if property.specs
-          h2 Specifications
-          ol.specs
-            - for spec in property.specs
-              - var specData = site.specs.Text[spec]
-              li
-                a(href = specData.link.replace('%s', property.name))
-                  = specData.name
-                = ' [' + specData.status + ']'
+mixin property-table(property)
+  mixin property-table-caption(property)
+    caption
+      code= property.name
+      = ' property'
 
-        if property.prefixes
-          h2 Prefixes
-          ul
-            - for prefix in property.prefixes
-              li= prefix
+  mixin property-table-head(property)
+    thead
+      tr
+        th(rowspan="2") Value
+        th(rowspan="2") Introduced
+        th(colspan="10") Support
+      tr.browsers
+        - for browser in site.browsers
+          th(colspan=colspans[property.name][browser]): span= browser
 
-      //- block
+  mixin property-table-support-cell(property, value, browser)
+    - var support = supportTables[property.name][value][browser.toLowerCase()]
+    if support
+      if typeof support == 'number'
+        //- Fully supported
+        td.supported(colspan=colspans[property.name][browser])
+          = support
+      else
+        - for subSupport, subSupportIndex in support
+          if support.length > 1 && subSupportIndex == support.length - 1
+            //- Fully supported after partial
+            td.supported.half-width
+              = subSupport
+          else
+            //- Partial support
+            td.prefixed(
+              class = support.length > 1 ? 'half-width' : false,
+              colspan = support.length == 1 && colspans[property.name][browser]
+              )
+              = subSupport
+    else
+      //- Not supported
+      td.unsupported(colspan=colspans[property.name][browser])
+        | No
+
+  mixin property-table-body(property)
+    tbody
+      - for value in Object.keys(property.values)
+        tr
+          //- Value name
+          td: +b(value.indexOf('>') >= 0 ? 'var' : 'code' )= value
+
+          //- Introduced in
+          td= property.values[value] && property.values[value].introduced || property.introduced
+
+          //- Browser values
+          - for browser in site.browsers
+            +property-table-support-cell(property, value, browser)
+
+  table(id=property.name)
+    +property-table-caption(property)
+    +property-table-head(property)
+    +property-table-body(property)
+
+mixin property-specs(property)
+  if property.specs
+    h2 Specifications
+    ol.specs
+      - for spec in property.specs
+        - var specData = site.specs.Text[spec]
+        li
+          a(href = specData.link.replace('%s', property.name))
+            = specData.name
+          = ' [' + specData.status + ']'
+
+mixin property-prefixes(property)
+  if property.prefixes
+    h2 Prefixes
+    ul
+      - for prefix in property.prefixes
+        li= prefix
 
 mixin page-body()
   body
